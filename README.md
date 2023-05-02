@@ -3,34 +3,47 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/guanjq/targetdiff/blob/main/LICIENCE)
 
 
-This repository is the official implementation of 3D Equivariant Diffusion for Target-Aware Molecule Generation and Affinity Prediction (ICLR 2023). [[PDF]](https://openreview.net/pdf?id=kJqXEPXMsE0) 
-
-<p align="center">
-  <img src="assets/overview.png" /> 
-</p>
-
-## Installation
-
-### Dependency
-
-The code has been tested in the following environment:
+This repository is the **NON-OFFICIAL** implementation of 3D Equivariant Diffusion for Target-Aware Molecule Generation and Affinity Prediction (ICLR 2023). [[PDF]](https://openreview.net/pdf?id=kJqXEPXMsE0) 
 
 
-| Package           | Version   |
-|-------------------|-----------|
-| Python            | 3.8       |
-| PyTorch           | 1.13.1    |
-| CUDA              | 11.6      |
-| PyTorch Geometric | 2.2.0     |
-| RDKit             | 2022.03.2 |
+# Notes
+## Vina energy for different generated molecules
+- paper fig 4, Target Binding Affinity
 
-### Install via Conda and Pip
+
+## Diffusion
+- Atom coordinates
+- Atom types
+
+
+## Forward q(x_t | x_t-1)
+### Time Schedule beta
+
+
+### beta, alpha, sigma
+
+
+## Denoise p(x_t-1 | x_t)
+
+
+## Loss Function
+Difference from ELBO (neg log likelihood)? 
+
+### L_t-1 and Error term (eps) between p and q
+UNet
+
+
+
+
+# Reproduce
+## Install via Conda and Pip
 ```bash
 conda create -n targetdiff python=3.8
 conda activate targetdiff
-conda install pytorch pytorch-cuda=11.6 -c pytorch -c nvidia
-conda install pyg -c pyg
-conda install rdkit openbabel tensorboard pyyaml easydict python-lmdb -c conda-forge
+# pip install torch==1.13.1+cu116 torchvision==0.14.1+cu116 --extra-index-url https://download.pytorch.org/whl/cu116
+conda install -y pytorch==1.13.1 pytorch-cuda=11.6 -c pytorch -c nvidia
+conda install -y pyg -c pyg
+conda install -y rdkit openbabel tensorboard pyyaml easydict python-lmdb -c conda-forge
 
 # For Vina Docking
 pip install meeko==0.1.dev3 scipy pdb2pqr vina==1.2.2 
