@@ -39,7 +39,9 @@ UNet
 # Reproduce
 ## Install via Conda and Pip
 ```bash
-bash setup.sh
+bash setup.sh  # install packages in conda env
+bash get_weights.sh  # download weights
+source init.sh  # re-init
 ```
 
 -----
