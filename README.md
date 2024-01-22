@@ -5,6 +5,7 @@
 
 This repository is the **NON-OFFICIAL** implementation of 3D Equivariant Diffusion for Target-Aware Molecule Generation and Affinity Prediction (ICLR 2023). [[PDF]](https://openreview.net/pdf?id=kJqXEPXMsE0) 
 
+The official one: https://github.com/guanjq/targetdiff
 
 # Notes
 ## Vina energy for different generated molecules
@@ -38,33 +39,7 @@ UNet
 # Reproduce
 ## Install via Conda and Pip
 ```bash
-conda create -n targetdiff python=3.8
-conda activate targetdiff
-# pip install torch==1.13.1+cu116 torchvision==0.14.1+cu116 --extra-index-url https://download.pytorch.org/whl/cu116
-conda install -y pytorch==1.13.1 pytorch-cuda=11.6 -c pytorch -c nvidia
-conda install -y pyg -c pyg
-conda install -y rdkit openbabel tensorboard pyyaml easydict python-lmdb -c conda-forge
-
-# For Vina Docking
-pip install meeko==0.1.dev3 scipy pdb2pqr vina==1.2.2 
-python -m pip install git+https://github.com/Valdes-Tresanco-MS/AutoDockTools_py3
-```
-The code should work with PyTorch >= 1.9.0 and PyG >= 2.0. You can change the package version according to your need.
-
-### (Alternatively) Install via Mamba
-Install Mamba
-
-```bash
-wget "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
-bash Mambaforge-$(uname)-$(uname -m).sh  # accept all terms and install to the default location
-rm Mambaforge-$(uname)-$(uname -m).sh  # (optionally) remove installer after using it
-source ~/.bashrc  # alternatively, one can restart their shell session to achieve the same result
-```
-
-Create Mamba environment
-```bash
-mamba env create -f environment.yaml
-conda activate targetdiff  # note: one still needs to use `conda` to (de)activate environments
+bash setup.sh
 ```
 
 -----
